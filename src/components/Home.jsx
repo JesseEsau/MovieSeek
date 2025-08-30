@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import MovieGrid from "./MovieGrid"
+const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -12,7 +13,8 @@ function Home() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(` http://www.omdbapi.com/?i=tt3896198&apikey=c7a8a276&s=${query}`);
+        
+      const res = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`);
       const data = await res.json();
 
       if (data.Search) {

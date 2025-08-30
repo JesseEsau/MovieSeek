@@ -5,11 +5,12 @@ function MovieDetail() {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=c7a8a276`);
+        const res = await fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=${API_KEY}`);
         const data = await res.json();
         setMovie(data);
       } catch (err) {
