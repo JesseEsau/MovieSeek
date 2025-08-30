@@ -10,7 +10,7 @@ function MovieDetail() {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=${API_KEY}`);
+        const res = await fetch(`https://www.omdbapi.com/?i=${id}&plot=full&apikey=${API_KEY}`);
         const data = await res.json();
         setMovie(data);
       } catch (err) {
